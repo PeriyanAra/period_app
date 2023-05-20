@@ -18,38 +18,41 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 23,
-      ),
-      decoration: BoxDecoration(
-        color: whiteModeColors.primaryBackgroundColor,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(16),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 23,
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                title,
-                style: periodTheme.title,
-              ),
-              Text(
-                subtitle,
-                style: periodTheme.subtitle,
-              ),
-            ],
+        decoration: BoxDecoration(
+          color: whiteModeColors.primaryBackgroundColor,
+          borderRadius: const BorderRadius.all(
+            Radius.circular(16),
           ),
-          CustomButton(
-            iconColor: Colors.white,
-            containerColor: whiteModeColors.buttonColor,
-          ),
-        ],
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  title,
+                  style: periodTheme.title,
+                ),
+                Text(
+                  subtitle,
+                  style: periodTheme.subtitle,
+                ),
+              ],
+            ),
+            CustomButton(
+              iconColor: Colors.white,
+              containerColor: whiteModeColors.buttonColor,
+            ),
+          ],
+        ),
       ),
     );
   }

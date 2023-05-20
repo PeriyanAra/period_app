@@ -1,5 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:period_app/bloc/navigation_bloc.dart';
+import 'package:period_app/bloc_provider_wrapper.dart';
 import 'package:period_app/generated/codegen_loader.g.dart';
 import 'package:period_app/navigation/app_router.dart';
 import 'package:period_app/theme/period_theme.dart';
@@ -36,15 +39,26 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      debugShowCheckedModeBanner: false,
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      title: 'Period App',
-      theme: periodTheme,
-      routeInformationParser: appRouter.defaultRouteParser(),
-      routerDelegate: appRouter.delegate(),
+    return BlocProvideWrapper(
+      child: BlocListener<NavigationBloc, NavigationState>(
+        listener: listenToNavigationBloc,
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: 'Period App',
+          theme: periodTheme,
+          routeInformationParser: appRouter.defaultRouteParser(),
+          routerDelegate: appRouter.delegate(),
+        ),
+      ),
     );
+  }
+
+  void listenToNavigationBloc(BuildContext context, NavigationState state) {
+    if (state is NavigationSetUpBirthDayState) {
+      appRouter.push(const BirthDayPickerRoute());
+    }
   }
 }
