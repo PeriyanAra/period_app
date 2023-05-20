@@ -39,22 +39,26 @@ class _BirthDayPickerScreenState extends State<BirthDayPickerScreen> {
           const Spacer(flex: 1),
           Center(
             child: SizedBox(
-              height: 200,
+              height: 240,
               width: MediaQuery.of(context).size.width - 16,
               child: Stack(
                 children: [
                   Center(
                     child: SizedBox(
-                      width: 250,
-                      height: 200,
+                      width: MediaQuery.of(context).size.width - 32,
                       child: CupertinoPicker(
-                        diameterRatio: 4,
+                        diameterRatio: 6,
                         squeeze: 1.1,
                         looping: true,
-                        itemExtent: 50,
+                        itemExtent: 60,
                         children: date
                             .map((date) => Center(
-                                  child: Text(date, style: periodTheme.title),
+                                  child: Text(
+                                    date,
+                                    style: periodTheme.title.copyWith(
+                                      fontSize: 32,
+                                    ),
+                                  ),
                                 ))
                             .toList(),
                         onSelectedItemChanged: (value) {},
