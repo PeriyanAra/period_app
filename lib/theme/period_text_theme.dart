@@ -14,8 +14,8 @@ extension PeriodTextTheme on ThemeData {
 
   TextStyle get subtitle {
     return TextStyle(
-      fontSize: 15,
-      fontWeight: FontWeight.w400,
+      fontSize: 17,
+      fontWeight: FontWeight.w500,
       color: whiteModeColors.primaryFontColor,
       fontFamily: mainFont,
     );
