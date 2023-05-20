@@ -13,8 +13,8 @@ class HomeScreen extends StatelessWidget {
       body: Padding(
         padding: EdgeInsets.only(
           top: MediaQuery.of(context).padding.top,
-          left: 20,
-          right: 20,
+          left: 32,
+          right: 32,
           bottom: MediaQuery.of(context).padding.bottom,
         ),
         child: Column(

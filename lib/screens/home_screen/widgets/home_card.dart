@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:period_app/buttons/custom_button.dart';
 import 'package:period_app/theme/period_color.dart';
 import 'package:period_app/theme/period_text_theme.dart';
 import 'package:period_app/theme/period_theme.dart';
@@ -29,6 +30,7 @@ class HomeCard extends StatelessWidget {
         ),
       ),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,14 +39,15 @@ class HomeCard extends StatelessWidget {
                 title,
                 style: periodTheme.title,
               ),
-              const SizedBox(
-                height: 5,
-              ),
               Text(
                 subtitle,
                 style: periodTheme.subtitle,
               ),
             ],
+          ),
+          CustomButton(
+            iconColor: Colors.white,
+            containerColor: whiteModeColors.buttonColor,
           ),
         ],
       ),
