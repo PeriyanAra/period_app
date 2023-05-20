@@ -21,52 +21,49 @@ class HomeCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(
-        horizontal: 16,
-        vertical: 23,
-      ),
-      decoration: BoxDecoration(
-        color: whiteModeColors.primaryBackgroundColor,
-        borderRadius: const BorderRadius.all(
-          Radius.circular(16),
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: const EdgeInsets.symmetric(
+          horizontal: 16,
+          vertical: 23,
         ),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              ShowUpAnimationWrapper(
-                delayStart: animationDelay,
-                animationDuration: const Duration(seconds: 1),
-                curve: Curves.bounceIn,
-                direction: Direction.horizontal,
-                offset: 0.5,
-                child: Text(
-                  title,
-                  style: periodTheme.title,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                ShowUpAnimationWrapper(
+                  delayStart: animationDelay,
+                  animationDuration: const Duration(seconds: 1),
+                  curve: Curves.bounceIn,
+                  direction: Direction.horizontal,
+                  offset: 0.5,
+                  child: Text(
+                    title,
+                    style: periodTheme.title,
+                  ),
                 ),
-              ),
-              ShowUpAnimationWrapper(
-                delayStart:Duration(milliseconds: animationDelay.inMilliseconds + 200),
-                animationDuration: const Duration(seconds: 1),
-                curve: Curves.bounceIn,
-                direction: Direction.horizontal,
-                offset: 0.5,
-                child: Text(
-                  subtitle,
-                  style: periodTheme.subtitle,
+                ShowUpAnimationWrapper(
+                  delayStart: Duration(milliseconds: animationDelay.inMilliseconds + 200),
+                  animationDuration: const Duration(seconds: 1),
+                  curve: Curves.bounceIn,
+                  direction: Direction.horizontal,
+                  offset: 0.5,
+                  child: Text(
+                    subtitle,
+                    style: periodTheme.subtitle,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          CustomButton(
-            iconColor: Colors.white,
-            containerColor: whiteModeColors.buttonColor,
-          ),
-        ],
+              ],
+            ),
+            CustomButton(
+              iconColor: Colors.white,
+              containerColor: whiteModeColors.buttonColor,
+            ),
+          ],
+        ),
       ),
     );
   }
