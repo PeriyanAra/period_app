@@ -1,7 +1,12 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
-import 'package:period_app/birthday_picker_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:period_app/bloc/navigation_bloc.dart';
+import 'package:period_app/bloc_provider_wrapper.dart';
 import 'package:period_app/generated/codegen_loader.g.dart';
+import 'dart:async';
+import 'package:period_app/navigation/app_router.dart';
+import 'package:period_app/theme/period_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -18,75 +23,43 @@ Future<void> main() async {
       fallbackLocale: const Locale('en'),
       path: 'assets/translations',
       assetLoader: const CodegenLoader(),
-      child: const MyApp(),
+      child: const App(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  final appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Home'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({
-    Key? key,
-    required this.title,
-  }) : super(key: key);
-
-  final String title;
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              tr('trackPeriodTitle'),
-            ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
-            ),
-          ],
+    return BlocProvideWrapper(
+      child: BlocListener<NavigationBloc, NavigationState>(
+        listener: listenToNavigationBloc,
+        child: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          localizationsDelegates: context.localizationDelegates,
+          supportedLocales: context.supportedLocales,
+          locale: context.locale,
+          title: 'Period App',
+          theme: periodTheme,
+          routeInformationParser: appRouter.defaultRouteParser(),
+          routerDelegate: appRouter.delegate(),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ),
     );
+  }
+
+  void listenToNavigationBloc(BuildContext context, NavigationState state) {
+    if (state is NavigationSetUpBirthDayState) {
+      appRouter.push(const BirthDayPickerRoute());
+    }
   }
 }

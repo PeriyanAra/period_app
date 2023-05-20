@@ -2,19 +2,23 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   const CustomButton({
-    required this.iconColor,
     required this.containerColor,
+    this.iconColor,
     super.key,
   });
 
   final Color containerColor;
-  final Color iconColor;
+  final Color? iconColor;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 35.0,
-      width: 35.0,
+      padding: const EdgeInsets.only(
+        left: 3,
+        top: 6,
+        bottom: 6,
+        right: 2,
+      ),
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: containerColor,
