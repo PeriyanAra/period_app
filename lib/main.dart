@@ -1,6 +1,8 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:period_app/generated/codegen_loader.g.dart';
+import 'package:period_app/screens/home_screen/home_screen.dart';
+import 'package:period_app/theme/period_theme.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,13 +19,13 @@ Future<void> main() async {
       fallbackLocale: const Locale('en'),
       path: 'assets/translations',
       assetLoader: const CodegenLoader(),
-      child: const MyApp(),
+      child: const App(),
     ),
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class App extends StatelessWidget {
+  const App({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -32,10 +34,8 @@ class MyApp extends StatelessWidget {
       supportedLocales: context.supportedLocales,
       locale: context.locale,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Home'),
+      theme: periodTheme,
+      home: const HomeScreen(),
     );
   }
 }
