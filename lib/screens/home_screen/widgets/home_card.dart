@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:period_app/buttons/custom_button.dart';
 import 'package:period_app/screens/home_screen/widgets/show_up_animation_wrapper.dart';
-import 'package:period_app/theme/period_color.dart';
 import 'package:period_app/theme/period_text_theme.dart';
-import 'package:period_app/theme/period_theme.dart';
 
 class HomeCard extends StatelessWidget {
   const HomeCard({
@@ -23,12 +21,12 @@ class HomeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Material(
       borderRadius: const BorderRadius.all(Radius.circular(16)),
-      color: whiteModeColors.primaryBackgroundColor,
+      color: Theme.of(context).cardColor,
       child: InkWell(
         borderRadius: const BorderRadius.all(Radius.circular(16)),
         onTap: onTap,
-        splashColor: whiteModeColors.buttonColor.withOpacity(0.25),
-        highlightColor: whiteModeColors.buttonColor.withOpacity(0.25),
+        splashColor: Theme.of(context).indicatorColor.withOpacity(0.25),
+        highlightColor: Theme.of(context).indicatorColor.withOpacity(0.25),
         child: Container(
           padding: const EdgeInsets.symmetric(
             horizontal: 16,
@@ -49,7 +47,7 @@ class HomeCard extends StatelessWidget {
                       offset: 0.5,
                       child: Text(
                         title,
-                        style: periodTheme.title,
+                        style: Theme.of(context).title,
                       ),
                     ),
                     ShowUpAnimationWrapper(
@@ -60,7 +58,7 @@ class HomeCard extends StatelessWidget {
                       offset: 0.5,
                       child: Text(
                         subtitle,
-                        style: periodTheme.subtitle,
+                        style: Theme.of(context).subtitle,
                       ),
                     ),
                   ],
@@ -68,7 +66,7 @@ class HomeCard extends StatelessWidget {
               ),
               CustomButton(
                 iconColor: Colors.white,
-                containerColor: whiteModeColors.buttonColor,
+                containerColor: Theme.of(context).indicatorColor,
               ),
             ],
           ),

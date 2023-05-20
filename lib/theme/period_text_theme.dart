@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:period_app/theme/period_color.dart';
 import 'package:period_app/theme/period_fonts.dart';
 
 extension PeriodTextTheme on ThemeData {
@@ -7,7 +6,7 @@ extension PeriodTextTheme on ThemeData {
     return TextStyle(
       fontSize: 25,
       fontWeight: FontWeight.bold,
-      color: whiteModeColors.primaryFontColor,
+      color: primaryColor,
       fontFamily: mainFont,
     );
   }
@@ -16,7 +15,7 @@ extension PeriodTextTheme on ThemeData {
     return TextStyle(
       fontSize: 18,
       fontWeight: FontWeight.w400,
-      color: whiteModeColors.primaryFontColor,
+      color: primaryColor,
       fontFamily: mainFont,
     );
   }
@@ -25,7 +24,7 @@ extension PeriodTextTheme on ThemeData {
     return TextStyle(
       fontSize: 22,
       fontWeight: FontWeight.w500,
-      color: whiteModeColors.primaryFontColor,
+      color: primaryColor,
       fontFamily: mainFont,
     );
   }

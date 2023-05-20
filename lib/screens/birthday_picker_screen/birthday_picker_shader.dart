@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:period_app/theme/period_color.dart';
 
 class BirthDayPickerShader extends StatelessWidget {
   final MeasurePickerShaderPosition position;
@@ -24,12 +23,12 @@ class BirthDayPickerShader extends StatelessWidget {
             stops: const [0, 1],
             colors: position == MeasurePickerShaderPosition.top
                 ? [
-                    whiteModeColors.scafoldBackgroundColor.withOpacity(0),
-                    whiteModeColors.scafoldBackgroundColor
+                    Theme.of(context).scaffoldBackgroundColor.withOpacity(0),
+                    Theme.of(context).scaffoldBackgroundColor
                   ]
                 : [
-                    whiteModeColors.scafoldBackgroundColor,
-                    whiteModeColors.scafoldBackgroundColor.withOpacity(0)
+                    Theme.of(context).scaffoldBackgroundColor,
+                    Theme.of(context).scaffoldBackgroundColor.withOpacity(0)
                   ],
           ),
         ),
