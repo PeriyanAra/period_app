@@ -21,12 +21,14 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             HomeCard(
+              animationDelay: const Duration(milliseconds: 0),
               title: tr('trackPeriodTitle'),
               subtitle: tr('trackPeriodSubTitle'),
               onTap: () {},
             ),
             const SizedBox(height: 80),
             HomeCard(
+              animationDelay: const Duration(milliseconds: 300),
               title: tr('getPregnantTitle'),
               subtitle: tr('getPregnantSubTitle'),
               onTap: () {},
