@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:period_app/screens/birthday_picker_screen/birth_day_picker_screen.dart';
+import 'package:period_app/screens/birthday_picker_screen/birthday_picker_screen.dart';
 import 'package:period_app/screens/home_screen/home_screen.dart';
 import 'package:flutter/material.dart';
 

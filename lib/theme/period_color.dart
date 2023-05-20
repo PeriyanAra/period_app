@@ -15,7 +15,7 @@ class _WhiteModeColor implements _PeriodColor {
   @override
   Color get scafoldBackgroundColor => const Color(0xFFFFFFFF);
   @override
-  Color get primaryBackgroundColor => const Color(0xFFfFEFEF);
+  Color get primaryBackgroundColor => const Color(0xFFFFEFEF);
   @override
   Color get primaryFontColor => const Color(0xFF000000);
   @override
