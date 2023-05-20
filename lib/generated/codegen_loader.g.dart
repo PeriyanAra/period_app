@@ -17,7 +17,7 @@ class CodegenLoader extends AssetLoader{
   static const Map<String,dynamic> de = {
   "trackPeriodTitle": "Verfolgen Sie meine Periode",
   "trackPeriodSubTitle": "verhütung und Wohlbefinden",
-  "getPregnantTitle": "schwanger werden",
+  "getPregnantTitle": "Schwanger werden",
   "getPregnantSubTitle": "erfahren Sie mehr über reproduktive Gesundheit",
   "logInDateTitle": "Geben Sie Ihr Geburtsdatum ein",
   "nextButtonText": "Nächste"
