@@ -6,7 +6,7 @@ extension PeriodTextTheme on ThemeData {
   TextStyle get title {
     return TextStyle(
       fontSize: 25,
-      fontWeight: FontWeight.w800,
+      fontWeight: FontWeight.bold,
       color: whiteModeColors.primaryFontColor,
       fontFamily: mainFont,
     );
@@ -23,7 +23,7 @@ extension PeriodTextTheme on ThemeData {
 
   TextStyle get body {
     return TextStyle(
-      fontSize: 17,
+      fontSize: 22,
       fontWeight: FontWeight.w500,
       color: whiteModeColors.primaryFontColor,
       fontFamily: mainFont,
