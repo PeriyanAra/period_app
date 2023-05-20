@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:period_app/screens/home_screen/widgets/home_card.dart';
 import 'package:period_app/theme/period_color.dart';
@@ -20,14 +21,14 @@ class HomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             HomeCard(
-              title: 'Track my period',
-              subtitle: 'contreception and wellbeing',
+              title: tr('trackPeriodTitle'),
+              subtitle: tr('trackPeriodSubTitle'),
               onTap: () {},
             ),
-            const SizedBox(height: 40),
+            const SizedBox(height: 80),
             HomeCard(
-              title: 'Get pregnent',
-              subtitle: 'learn about reproductive health',
+              title: tr('getPregnantTitle'),
+              subtitle: tr('getPregnantSubTitle'),
               onTap: () {},
             ),
           ],
